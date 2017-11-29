@@ -1,2 +1,9 @@
-<h1>Persons#index</h1>
-<p>Find me in app/views/persons/index.html.erb</p>
+<h1>Persons</h1>
+<% if @Persons.any? %>
+  <% @Persons.each do |person| %>
+    <h2><%= person.name %></h2>
+    <%= link_to 'Edit This Person', edit_person_path(person) %>
+  <% end %>
+<% else %>
+  <h2>There are no people. Would you like to create one?</h2>
+<% end %>
